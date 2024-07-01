@@ -26,4 +26,19 @@ public class UserController {
     public List<User> getUsersByPostContent(@RequestParam String content) {
         return userService.getUsersWithPostContent(content);
     }
+
+    @GetMapping("/users/ordered-asc")
+    public List<User> getUsersOrderedByUsernameAsc() {
+        return userService.getUsersOrderedByUsernameAsc();
+    }
+
+    @GetMapping("/users/ordered-desc")
+    public List<User> getUsersOrderedByUsernameDesc() {
+        return userService.getUsersOrderedByUsernameDesc();
+    }
+
+    @GetMapping("/users/grouped-by-username")
+    public List<User> getUsersGroupedByUsername() {
+        return userService.getUsersGroupedByUsername();
+    }
 }

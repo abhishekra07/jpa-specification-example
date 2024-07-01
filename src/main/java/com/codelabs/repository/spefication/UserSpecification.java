@@ -22,4 +22,25 @@ public class UserSpecification {
             return criteriaBuilder.equal(posts.get("content"), content);
         };
     }
+
+    public static Specification<User> orderByUsernameAsc() {
+        return (root, query, criteriaBuilder) -> {
+            query.orderBy(criteriaBuilder.asc(root.get("username")));
+            return criteriaBuilder.conjunction();
+        };
+    }
+
+    public static Specification<User> orderByUsernameDesc() {
+        return (root, query, criteriaBuilder) -> {
+            query.orderBy(criteriaBuilder.desc(root.get("username")));
+            return criteriaBuilder.conjunction();
+        };
+    }
+
+    public static Specification<User> groupByUsername() {
+        return (root, query, criteriaBuilder) -> {
+            query.groupBy(root.get("username"));
+            return criteriaBuilder.conjunction();
+        };
+    }
 }
